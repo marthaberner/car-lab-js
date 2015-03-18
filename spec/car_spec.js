@@ -1,54 +1,54 @@
-// this syntax (seperate variables with comma and remove the following var
-//is common when you have more than one variable being declared at a time
-
-var Car = require('../src/car.js'),
-expect = require('chai').expect;
+var Car = require('../car');
 
 describe('Car', function(){
 
   beforeEach(function(){
-    // create a new myCar object each time
+    car = new Car("Toyotoa", "Tercel", 1975, "Yellow");
   });
 
   describe('#year', function(){
     //think about using the new Date() and getFullYear functions
-    it('should be the current year', function(){
-
+    xit('should be the current year', function(){
+      expect(car.year).toEqual(1975);
     });
   });
 
   describe('#state', function(){
-    it('should initially be off', function(){
-
+    xit('should initially be off', function(){
+      expect(car.state).toEqual("off");
     });
   });
 
   describe('#previousOwners', function(){
-    it('should initially be empty', function(){
-
+    xit('should initially be empty', function(){
+      expect(car.previousOwners).toEqual([]);
     });
   });
 
   describe('#curretOwner', function(){
-    it('should initially be manufacturer', function(){
-
+    xit('should initially be manufacturer', function(){
+      expect(car.currentOwner).toEqual("manufacturer");
     });
   });
 
   describe('#passengers', function(){
-    it('should initially be empty', function(){
-
+    xit('should initially be empty', function(){
+      expect(car.passengers).toEqual([]);
     });
   });
 
   describe('#sale', function(){
 
-    it('should move currentOwner to previousOwners array', function(){
-
+    xit('should move currentOwner to previousOwners array', function(){
+      car.currentOwner = "Joe Schmoe";
+      car.sale("Suzie Swazie");
+      expect(car.previousOwners).toEqual(["Joe Schmoe"]);
     });
 
-    it('should update currentOwner with the new owner', function(){
-
+    xit('should update currentOwner with the new owner', function(){
+      car.currentOwner = "Joe Schmoe";
+      car.sale("Suzie Swazie");
+      expect(car.currentOwner).toEqual("Suzie Swazie");
     });
   });
 
@@ -98,5 +98,3 @@ describe('Car', function(){
   });
 
 });
-
-
